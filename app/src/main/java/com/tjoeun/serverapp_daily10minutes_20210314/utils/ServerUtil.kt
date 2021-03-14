@@ -1,6 +1,7 @@
 package com.tjoeun.serverapp_daily10minutes_20210314.utils
 
 import okhttp3.FormBody
+import okhttp3.Request
 
 class ServerUtil {
 
@@ -32,6 +33,12 @@ class ServerUtil {
             val fomData = FormBody.Builder()
                 .add("email", id)
                 .add("password",pw)
+                .build()
+
+//            API 요청을 어디로 어떻게 할건지 종합하는 변수
+            val request = Request.Builder()
+                .url(urlString)  // 어디로 가는지?
+                .post(fomData)   // POST방식 - 필요데이터(formData) 들고 가도록
                 .build()
 
 
