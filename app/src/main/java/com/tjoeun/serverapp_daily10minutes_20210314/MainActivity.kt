@@ -20,7 +20,7 @@ class MainActivity : BaseActivity() {
             val inputId = emailEdt.text.toString()
             val inputPw = pwEdt.text.toString()
 
-//            이 아이디/비번이 회원이 맞는지, 서버에 확인 요청
+//            이 아이디/비번이 회원이 맞는지, 서버에 확인 요청 => 로그인 요청
 
             ServerUtil.postRequestLogin(inputId, inputPw)
 

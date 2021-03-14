@@ -12,6 +12,10 @@ class ServerUtil {
 //    15.164.153.174/api/docs/ - 기능 명세 주소
 //    https가 아닌 경우 추가 - manifests에 android:usesCleartextTraffic="true"
 
+//    화면(액티비티의) 입장에서, 서버에 다녀오면 할 행동을 적는 행동 지침
+//    행동 지침을 전달하는 방식 : Interface
+
+    interface JsonRespon
 
 
 //    ServerUtil.함수() 처럼, 클래스이름. 만 해도 바로 사용하게 도와주는 코드
@@ -79,7 +83,7 @@ class ServerUtil {
                     
 //                    연습-활용 : codeNum 200이면, 로그인 성공 아니면 로그인 실패 로그 찍기
 //                    로그인에 실패시 => 서버에서 알려주는 실패 사유를 로그로 찍자
-//                    kj_cho@
+//                    kj_cho@nepp.
 //
                     
                     if (codeNum == 20) {
