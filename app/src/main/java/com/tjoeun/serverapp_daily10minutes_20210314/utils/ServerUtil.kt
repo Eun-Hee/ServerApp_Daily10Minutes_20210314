@@ -1,5 +1,6 @@
 package com.tjoeun.serverapp_daily10minutes_20210314.utils
 
+import android.os.Handler
 import android.util.Log
 import okhttp3.*
 import org.json.JSONObject
@@ -15,7 +16,7 @@ class ServerUtil {
 //    화면(액티비티의) 입장에서, 서버에 다녀오면 할 행동을 적는 행동 지침
 //    행동 지침을 전달하는 방식 : Interface
 
-    interface JsonRespon
+    interface JsonResponHandler
 
 
 //    ServerUtil.함수() 처럼, 클래스이름. 만 해도 바로 사용하게 도와주는 코드
@@ -28,7 +29,7 @@ class ServerUtil {
         val HOST_URL = "http://15.164.153.174"
 //        함수 작성 - 로그인 기능 담당 함수
 
-        fun postRequestLogin(id : String, pw : String) {
+        fun postRequestLogin(id : String, pw : String, handler: JsonResponHandler?) {
 
 //            실제 기능 수행 주소 ex. 로그인 - http://15.164.153.174/user
 //            HOST_URL/user => 최종 주소 완성
@@ -76,28 +77,14 @@ class ServerUtil {
 
                     val  jsonObj = JSONObject(bodyString)
                     Log.d("서버응답본문", jsonObj.toString())
-                    
-//                    연습 : code에 적힌 숫자(Int) 가 얼마인가?
-                    
-                    val codeNum = jsonObj.getInt("code")
-                    
-//                    연습-활용 : codeNum 200이면, 로그인 성공 아니면 로그인 실패 로그 찍기
-//                    로그인에 실패시 => 서버에서 알려주는 실패 사유를 로그로 찍자
-//                    kj_cho@nepp.
-//
-                    
-                    if (codeNum == 20) {
-                        Log.d("로그인 결과","성공")
-                    }
-                    else {
-                        Log.d("로그인 결과","실패")
 
+//                    실제 : 응답 처리 코드는 => 화면에서 작성하도록 미루자
+//                    화면에 적힌 행동 방침을 그대로 실행
 
-//                        추가로, message로 달려인ㅆ는 String을 추출
-                        val msgStr = jsonObj.getString("message")
-                        Log.d("로그인실패사유",msgStr)
-                    }
-                }
+                    handler?.onResponse()
+
+                    
+            }
 
             })
 
