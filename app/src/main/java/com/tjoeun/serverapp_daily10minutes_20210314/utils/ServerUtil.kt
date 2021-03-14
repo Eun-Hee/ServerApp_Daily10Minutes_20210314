@@ -1,6 +1,8 @@
 package com.tjoeun.serverapp_daily10minutes_20210314.utils
 
 import okhttp3.FormBody
+import okhttp3.OkHttp
+import okhttp3.OkHttpClient
 import okhttp3.Request
 
 class ServerUtil {
@@ -40,6 +42,15 @@ class ServerUtil {
                 .url(urlString)  // 어디로 가는지?
                 .post(fomData)   // POST방식 - 필요데이터(formData) 들고 가도록
                 .build()
+
+//            startActivity처럼 -> 실제로 Request를 수행하는 코드
+//            클라이언트로써 동작하도록 도와주는 라이브러리 : OKHttp
+
+            val client = OkHttpClient()
+
+//            클라이언트가 실제 리퀘스트 수행
+
+            client.
 
 
 
