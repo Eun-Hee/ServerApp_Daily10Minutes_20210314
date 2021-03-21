@@ -16,7 +16,11 @@ class ServerUtil {
 //    화면(액티비티의) 입장에서, 서버에 다녀오면 할 행동을 적는 행동 지침
 //    행동 지침을 전달하는 방식 : Interface
 
-    interface JsonResponHandler
+    interface JsonResponHandler{
+        fun onResponse(
+            json : JSONObject
+        )
+    }
 
 
 //    ServerUtil.함수() 처럼, 클래스이름. 만 해도 바로 사용하게 도와주는 코드
@@ -81,7 +85,7 @@ class ServerUtil {
 //                    실제 : 응답 처리 코드는 => 화면에서 작성하도록 미루자
 //                    화면에 적힌 행동 방침을 그대로 실행
 
-                    handler?.onResponse()
+                    handler?.onResponse(jsonObj)
 
                     
             }
