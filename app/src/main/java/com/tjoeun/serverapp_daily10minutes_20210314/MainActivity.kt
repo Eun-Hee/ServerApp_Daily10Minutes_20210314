@@ -1,8 +1,6 @@
 package com.tjoeun.serverapp_daily10minutes_20210314
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ArrayAdapter
 import com.tjoeun.serverapp_daily10minutes_20210314.adapters.ProjectAdapter
 import com.tjoeun.serverapp_daily10minutes_20210314.datas.Project
 import com.tjoeun.serverapp_daily10minutes_20210314.utils.ServerUtil
