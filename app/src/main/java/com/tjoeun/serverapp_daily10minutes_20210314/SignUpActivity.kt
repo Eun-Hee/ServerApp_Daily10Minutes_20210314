@@ -21,9 +21,15 @@ class SignUpActivity : BaseActivity() {
 
 //            입력한 이메일 => 서버에 중복여부 확인
 
-            val inputEmail = emailEdt.text.String()
+            val inputEmail = emailEdt.text.toString()
 
-//            서버에 ->  /email_check 로 중복확인 요청 -> ServerUtil에 함수 추가 피룡
+//            서버에 ->  /email_check 로 중복확인 요청 -> ServerUtil에 함수 추가 필요
+
+            ServerUtil.getReuestEmailCheck(inputEmail, object : ServerUtil.JsonResponHandler{
+                override fun onResponse(json: JSONObject) {
+
+                }
+            })
 
         }
 
