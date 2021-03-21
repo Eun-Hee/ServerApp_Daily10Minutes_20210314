@@ -1,18 +1,17 @@
 package com.tjoeun.serverapp_daily10minutes_20210314
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import com.tjoeun.serverapp_daily10minutes_20210314.utils.ServerUtil
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_login.*
 import org.json.JSONObject
 
-class MainActivity : BaseActivity() {
+class LoginActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_login)
         setupEvents()
         setValues()
     }
@@ -30,6 +29,7 @@ class MainActivity : BaseActivity() {
             }
             else{
 //                지금 체크를 해제했다.
+                Toast.makeText(mContext, "로그인 ㅅ", Toast.LENGTH_SHORT).show()
             }
         }
 

@@ -15,6 +15,8 @@ class ServerUtil {
 //    15.164.153.174 - 서버 기초 주소
 //    15.164.153.174/api/docs/ - 기능 명세 주소
 //    https가 아닌 경우 추가 - manifests에 android:usesCleartextTraffic="true"
+//    cho@kj.com
+//    Test!1234
 
 //    화면(액티비티의) 입장에서, 서버에 다녀오면 할 행동을 적는 행동 지침
 //    행동 지침을 전달하는 방식 : Interface
