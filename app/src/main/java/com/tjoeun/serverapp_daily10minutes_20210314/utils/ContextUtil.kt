@@ -7,10 +7,23 @@ class ContextUtil {
     companion object {
 
 //        메모장 이름에 대응되는 개념. (환경설정 파일 이름)
-        val prefName = "Daily10MinutePref"
+        private val prefName = "Daily10MinutePref"
 
 //        저장할 데이터 항목명 변수들.
-        val IS_AUTO_LOGIN = "IS_AUTO_LOGIN"
+        private val IS_AUTO_LOGIN = "IS_AUTO_LOGIN"
+        private val TOKEN = "TOKEN"
+
+//        토큰값 저장 / 조회 기능
+
+        fun setToken(context: Context, token : String) {
+            val pref = context.getSharedPreferences(prefName, Context.MODE_PRIVATE)
+            pref.edit().putString(TOKEN, token).apply()
+}
+
+        fun getToken(context: Context) : String {
+            val pref = context.getSharedPreferences(prefName, Context.MODE_PRIVATE)
+            return pref.getString(TOKEN,)
+        }
 
 //        자동로그인 여부 저장(set) / 확인(get) 2가지 기능.
 

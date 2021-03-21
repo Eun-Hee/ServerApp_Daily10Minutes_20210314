@@ -67,7 +67,7 @@ class LoginActivity : BaseActivity() {
 //                        로그인 성공시 처리. => 메인화면 진입
 
 //                        토큰값이 뭔지 추출해서 => SharedPrefernces에 저장
-                        
+
                         val dataObj = json.getJSONObject("data")
                         val token = dataObj.getString("token")
 
