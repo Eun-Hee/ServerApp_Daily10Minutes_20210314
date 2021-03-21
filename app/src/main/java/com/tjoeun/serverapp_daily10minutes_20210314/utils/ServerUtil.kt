@@ -99,13 +99,13 @@ class ServerUtil {
 
 //        회원 가입 기능 담당 함수
 
-        fun putRequestSignup(email : String, pw : String, nickname : String, handler: JsonResponHandler ) {
+        fun putRequestSignup(email : String, pw : String, nickname : String, handler: JsonResponHandler? ) {
 
 //            서버에 회원가입 요청 : 어디로? Url / 어떤 데이터? 파라미터(formData) / 어떤 방식? PUT
 
 //            어디로? HOST_URS + /user 형태의 주소
 
-            val uirString = "${HOST_URL}/user"
+            val urlString = "${HOST_URL}/user"
 
 //            어떤 데이터? 어느 위치에? - 파라미터
 //            모든 파라미터를 formdata에 담자
@@ -119,21 +119,26 @@ class ServerUtil {
 //            어떤방식? + 모든 정보 종합 => Request 클래스 사용
 
             val request = Request.Builder()
-
                 .url(urlString)
                 .put(formData)
                 .build()
 
 //            서버로 가기 위한 준비 끝 => 실제로 (client 클래스 도움) 출발
 
-            val client = OkHttpClient
+            val client = OkHttpClient()
+//            클라이언트가 실제 리퀘스트 수행. (newCall)
+//            서버에 다녀와서, 서버가 하는 말 (응답-Response / CallBack)을 처리하는 코드 같이 작성.
+            
 
             client.newCall(request).enqueue(object : Callback {
                 override fun onFailure(call: Call, e: IOException) {
-//                    서버 연결 자체 문제 (Skip)
+//                    서버 연결 자체를 실패.
+//                    데이터 소진, 서버가 터짐 등등의 사유로 아예 연결 실패.
+
+//                    반대 - 로그인 비번 틀림(실패), 회원가입(이메일중복 실패) => 연결은 성공, 결과만 실패.
+//                    여기서 실행되지 않는다.
 
                 }
-
                 override fun onResponse(call: Call, response: Response) {
 //                    응답이 돌아온 경우 => 구체적 처리방안은 화면에 넘기자 + JSON 응답도 넘기자
 
@@ -142,11 +147,11 @@ class ServerUtil {
                     val bodyString = response.body!!.string()
                     val jsonObj = JSONObject(bodyString)
                     Log.d("서버응답내용", jsonObj.toString())
+//                    완성된 jsonObj를 화면에서 분석하도록 전달
+                    handler?.onResponse(jsonObj)
 //
 
-
                 }
-
 
             })
 
