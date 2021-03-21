@@ -22,7 +22,8 @@ class ProjectAdapter(
         var tempRow = convertview
 
         if (tempRow == null) {
-            tempRow = inflater.inflate(R.layout.project_list_item)
+            tempRow = inflater.inflatetr(
+
         }
     }
 
