@@ -11,39 +11,41 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ID"/>
+        android:text="ID" />
 
     <EditText
         android:id="@+id/emailEdt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="이메일 양식으로 입력"
+        android:hint="이메일 양식으로 입력"
         android:inputType="textEmailAddress"/>
 
+
     <TextView
-        android:id="@+id/pwEdt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="PW"/>
+        android:text="PW" />
 
     <EditText
+        android:id="@+id/pwEdt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="8자리 이상 입력"
+        android:hint="8자리 이상 입력"
         android:inputType="textPassword"/>
 
     <Button
         android:id="@+id/loginBtn"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="로그인"/>
+        android:text="로그인" />
+
 
     <Button
         android:id="@+id/signUpBtn"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="회원가입"/>
+        android:text="회원가입" />
 
 
 

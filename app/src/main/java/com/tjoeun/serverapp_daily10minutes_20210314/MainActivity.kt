@@ -1,5 +1,6 @@
 package com.tjoeun.serverapp_daily10minutes_20210314
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -16,6 +17,12 @@ class MainActivity : BaseActivity() {
         setValues()
     }
     override fun setupEvents() {
+
+        signUpBtn.setOnClickListener {
+
+            val myIntent = Intent(mContext, SignUpActivity::class.java)
+            startActivity(myIntent)
+        }
 
         loginBtn.setOnClickListener {
 
@@ -50,10 +57,10 @@ class MainActivity : BaseActivity() {
                             Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show()
                         }
 
+                    }
                 }
-            })
-            }
 
+            })
 
         }
 
