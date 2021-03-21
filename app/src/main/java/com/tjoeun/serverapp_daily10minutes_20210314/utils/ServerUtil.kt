@@ -163,7 +163,7 @@ class ServerUtil {
 
 //        이메일 중복여부 체크 함수
 
-        fun getReuestEmailCheck(email: String, handler: JsonResponHandler?) {
+        fun getRequestEmailCheck(email: String, handler: JsonResponHandler?) {
 
 //            어디로? + 어떤 데이터? => URL을 적을때 같이 완성되어야 한다
 
