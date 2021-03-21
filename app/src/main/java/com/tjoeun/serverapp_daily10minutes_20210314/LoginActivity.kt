@@ -34,7 +34,7 @@ class LoginActivity : BaseActivity() {
             }
             else{
 //                지금 체크를 해제했다.
-                Toast.makeText(mContext, "로그인 ㅅ", Toast.LENGTH_SHORT).show()
+                Toast.makeText(mContext, "자동 로그인이 해제되었습니다. ", Toast.LENGTH_SHORT).show()
             }
         }
 
