@@ -47,7 +47,7 @@ class SignUpActivity : BaseActivity() {
                             val userObj = dataObj.getJSONObject("user")
                             val userName = userObj.getString("nick_name")
 
-                            Toast.makeText(mContext, "??님 환영합니다", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(mContext, "${userName}님 환영합니다", Toast.LENGTH_SHORT).show()
 
                             finish()
 
