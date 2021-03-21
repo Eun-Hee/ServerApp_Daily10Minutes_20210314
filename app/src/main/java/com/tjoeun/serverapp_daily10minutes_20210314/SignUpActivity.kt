@@ -49,7 +49,7 @@ class SignUpActivity : BaseActivity() {
 
 //            서버에 ->  /email_check 로 중복확인 요청 -> ServerUtil에 함수 추가 필요
 
-            ServerUtil.getReuestEmailCheck(inputEmail, object : ServerUtil.JsonResponHandler{
+            ServerUtil.getRequestEmailCheck(inputEmail, object : ServerUtil.JsonResponHandler{
 
                 override fun onResponse(json: JSONObject) {
 

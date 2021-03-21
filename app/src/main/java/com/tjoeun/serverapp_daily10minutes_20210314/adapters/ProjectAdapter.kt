@@ -4,11 +4,10 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.ViewParent
 import android.widget.ArrayAdapter
+import com.tjoeun.serverapp_daily10minutes_20210314.R
 import com.tjoeun.serverapp_daily10minutes_20210314.datas.Project
-import kotlinx.android.synthetic.main.activity_main.*
-import java.text.FieldPosition
+
 
 class ProjectAdapter(
     val mContext: Context,
@@ -22,9 +21,11 @@ class ProjectAdapter(
         var tempRow = convertview
 
         if (tempRow == null) {
-            tempRow = inflater.inflatetr(
+            tempRow = inflater.inflate(R.layout.project_list_item,null)
 
         }
+        var row = tempRow!!
+        return row
     }
 
 }

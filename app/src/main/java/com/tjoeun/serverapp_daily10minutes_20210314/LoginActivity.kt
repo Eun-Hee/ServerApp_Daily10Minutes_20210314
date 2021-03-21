@@ -60,6 +60,10 @@ class LoginActivity : BaseActivity() {
 
                     if (code == 200) {
 //                        로그인 성공시 처리. => 향후 진행
+
+                        val mtIntent = Intent(mContext, MainActivity::class.java)
+
+
                     }
                     else {
 //                        실패 처리. => 서버가 알려주는 실패사유를 토스트로 띄워보자. (UI반영)
