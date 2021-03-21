@@ -30,7 +30,7 @@ class SignUpActivity : BaseActivity() {
 
 //                이메일의 내용이 타이핑되었다 => 재검사 요구 문장으로 변경
 
-                checkResultTxt.text="이메일 중복 확인을 해주세요."
+                checkResultTxt.text = "이메일 중복 확인을 해주세요."
 
             }
 

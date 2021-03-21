@@ -18,7 +18,23 @@ class MainActivity : BaseActivity() {
     }
     override fun setupEvents() {
 
-        signUpBtn.setOnClickListener {
+//        자동로그인 체크 이벤트 -> true : 로그인 성공시 자동 로그인 됩니다.. 토스트 / false : 자동 로그인 해제
+
+        autoLoginCheckBox.setOnCheckedChangeListener { buttonView, isChecked ->
+
+//            isChecked : 지금 변경된 체크 여부
+
+            if (isChecked) {
+//                지금 체크로 찍혔다.
+                Toast.makeText(mContext, "로그인 성공시 자동 로그인 됩니다.", Toast.LENGTH_SHORT).show()
+            }
+            else{
+//                지금 체크를 해제했다.
+            }
+        }
+
+
+       signUpBtn.setOnClickListener {
 
             val myIntent = Intent(mContext, SignUpActivity::class.java)
             startActivity(myIntent)
