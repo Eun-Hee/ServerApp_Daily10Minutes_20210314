@@ -22,7 +22,7 @@ class ContextUtil {
 
         fun getToken(context: Context) : String {
             val pref = context.getSharedPreferences(prefName, Context.MODE_PRIVATE)
-            return pref.getString(TOKEN,)
+            return pref.getString(TOKEN,"") !!
         }
 
 //        자동로그인 여부 저장(set) / 확인(get) 2가지 기능.

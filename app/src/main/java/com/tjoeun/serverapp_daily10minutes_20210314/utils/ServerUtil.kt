@@ -1,5 +1,6 @@
 package com.tjoeun.serverapp_daily10minutes_20210314.utils
 
+import android.content.Context
 import android.os.Handler
 import android.provider.ContactsContract
 import android.util.Log
@@ -211,8 +212,9 @@ class ServerUtil {
 
 
 //        프로젝트 목록 받아오는 함수
+//        저장된 토큰(SharedPreferences-Context재료필요)을 꺼내서 => 서버에 전송 (header)
 
-        fun getRequestProjectList(handler: JsonResponHandler?) {
+        fun getRequestProjectList(context: Context, handler: JsonResponHandler?) {
 
 //            어디로? + 어떤 데이터? => URL을 적을때 같이 완성되어야 한다
 
@@ -234,6 +236,7 @@ class ServerUtil {
             val request = Request.Builder()
                 .url(urlString)
                 .get()
+                .header("X-Http-Token", ContextUtil.getToken())
                 .build()
 //            실제 호출 Client 변수
 
