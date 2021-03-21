@@ -76,13 +76,8 @@ class MainActivity : BaseActivity() {
                 }
 
 
-
-
             }
         })
-
-
-
 
     }
 
