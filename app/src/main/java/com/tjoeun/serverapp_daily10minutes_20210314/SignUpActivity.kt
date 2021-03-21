@@ -39,6 +39,14 @@ class SignUpActivity : BaseActivity() {
                     runOnUiThread{
 
                         if (code == 200) {
+
+//                            가입한 사람의 이름을 추출해서, 환영 메세지
+//                            json > data {} > user {} > "nick_name String 추출
+
+                            val dataObj = json.getJSONObject("data")
+                            val userObj = dataObj.getJSONObject("user")
+                            val userName = userObj.getString("nick_name")
+
                             Toast.makeText(mContext, "??님 환영합니다", Toast.LENGTH_SHORT).show()
 
                             finish()
@@ -48,15 +56,11 @@ class SignUpActivity : BaseActivity() {
 //                            서버가 주는 message 스트링을 토스트로 출력
                             val message = json.getInt("message")
 
-                            Toast.
+                            Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show()
                         }
 
 
                     }
-
-
-
-
 
 
                 }
