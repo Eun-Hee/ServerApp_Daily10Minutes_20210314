@@ -99,7 +99,7 @@ class ServerUtil {
 
 //        회원 가입 기능 담당 함수
 
-        fun putRequestSignup(email : String, pw : String, nickname : String, hander : JsonResponHandler? ) {
+        fun putRequestSignup(email : String, pw : String, nickname : String, handler: JsonResponHandler ) {
 
 //            서버에 회원가입 요청 : 어디로? Url / 어떤 데이터? 파라미터(formData) / 어떤 방식? PUT
 
@@ -128,7 +128,28 @@ class ServerUtil {
 
             val client = OkHttpClient
 
-            client.newCall(request)
+            client.newCall(request).enqueue(object : Callback {
+                override fun onFailure(call: Call, e: IOException) {
+//                    서버 연결 자체 문제 (Skip)
+
+                }
+
+                override fun onResponse(call: Call, response: Response) {
+//                    응답이 돌아온 경우 => 구체적 처리방안은 화면에 넘기자 + JSON 응답도 넘기자
+
+//                    응답 > 본문(body) > JSON형태로 변환 > 액티비티에 전달
+
+                    val bodyString = response.body!!.string()
+                    val jsonObj = JSONObject(bodyString)
+                    Log.d("서버응답내용", jsonObj.toString())
+//
+
+
+                }
+
+
+            })
+
 
             }
     }
