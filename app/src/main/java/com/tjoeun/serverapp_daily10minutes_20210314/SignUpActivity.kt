@@ -27,7 +27,7 @@ class SignUpActivity : BaseActivity() {
             val pw =
             val nick = nicknameEdt.text.toString()
 
-//            서버 - 회원가입기능에 전송 : Server
+//            서버 - 회원가입기능에 전송 : ServerUtil
         }
 
     }
