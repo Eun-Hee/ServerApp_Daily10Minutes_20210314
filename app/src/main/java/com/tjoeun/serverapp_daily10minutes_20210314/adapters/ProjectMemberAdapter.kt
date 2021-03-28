@@ -9,7 +9,7 @@ import com.tjoeun.serverapp_daily10minutes_20210314.R
 import com.tjoeun.serverapp_daily10minutes_20210314.datas.User
 
 class ProjectMemberAdapter(val mContext: Context,
-                           val resId,
+                           val resId : Int,
                            val mList : ArrayList<User>) : ArrayAdapter<User>(mContext, resId, mList) {
 
     val inflater = LayoutInflater.from(mContext)
@@ -18,8 +18,7 @@ class ProjectMemberAdapter(val mContext: Context,
 
         var tempRow = convertView
         if (tempRow == null) {
-                        tempRow = inflater.inflate(R.layout.member_list_item.null)
-
+                        tempRow = inflater.inflate(R.layout.member_list_item, null)
         }
 
         val row = tempRow!!
