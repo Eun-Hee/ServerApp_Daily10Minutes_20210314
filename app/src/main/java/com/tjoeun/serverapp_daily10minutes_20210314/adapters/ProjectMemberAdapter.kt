@@ -49,7 +49,7 @@ class ProjectMemberAdapter(val mContext: Context,
 //            어댑터는 startActivity 사용 x (상속 안받음)
 //            mContext 변수 : 어댑터를 사용하는 화면을 들고 있는 역할
 //            mContext의 기능중에 startActivity 사용
-            mContext.startActivities(myIntent)
+            mContext.startActivity(myIntent)
 
         }
 
