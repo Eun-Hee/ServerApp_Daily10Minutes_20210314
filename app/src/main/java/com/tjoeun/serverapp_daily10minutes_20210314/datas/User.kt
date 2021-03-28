@@ -30,7 +30,8 @@ class User {
 
                 val imgUrl = imgObj.getString("img_url")
 
-                UserData.profileImgUrls.add(imgUrl)
+                userData.profileImgUrls.add(imgUrl)
+
             }
 
             return userData
