@@ -140,7 +140,8 @@ class ViewProjectDetailActivity : BaseActivity() {
         viewMemberBtn.setOnClickListener {
 
             val myIntent = Intent(mContext, ViewMemberListActivity::class.java)
-            myIntent.putExtra()
+            myIntent.putExtra("project", mProject)
+            startActivity(myIntent)
         }
 
     }
