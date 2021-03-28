@@ -200,7 +200,7 @@ class ViewProjectDetailActivity : BaseActivity() {
         else {
             tagsLayout.visibility = View.VISIBLE
 
-//
+//          기존에 태그들이
             tagsLayout.removeAllViews()
 
 //            태그의 갯수 만클, 텍스트뷰를(tagLayout에)추가
