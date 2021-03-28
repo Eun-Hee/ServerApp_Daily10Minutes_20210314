@@ -1,5 +1,6 @@
 package com.tjoeun.serverapp_daily10minutes_20210314
 
+import android.graphics.Color
 import android.graphics.Color.CYAN
 import android.graphics.Color.parseColor
 import android.os.Bundle
@@ -160,6 +161,9 @@ class ViewProjectDetailActivity : BaseActivity() {
 //        참여 인원 수 반영 : ?명 양식으로 가공
         memberCountTxt.text = "${mProject.ongoingUsersCount}명"
 
+//        인증방법 : 단순 text 반영
+        proofMethodTxt.text = mProject.proofMethod
+
 //        내가 이 프로젝트에 참여중인가?
 //        참가상태 == "ONGOING" 이면 참여중, 그 외 모든 경우 참여X
 
@@ -199,7 +203,7 @@ class ViewProjectDetailActivity : BaseActivity() {
                 tagTextView.text = "#${tag}"
 
 //                텍스트컬러 지정
-                tagTextView.setTextColor(color.parseColor)
+                tagTextView.setTextColor(Color.parseColor("#5555FF"))
 
 //                만들어낸 텍스트뷰를 -> tagsLayout에 추가
 

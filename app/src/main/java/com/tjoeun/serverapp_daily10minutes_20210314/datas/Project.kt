@@ -10,6 +10,7 @@ class Project : Serializable{
     var imageURL = "" // 그림파일 경로(String) 저장 변수
     var description = ""
     var ongoingUsersCount = 0
+    var proofMethod = ""
 
     var myLastStatus : String? = null // null이 될 수도 있는 String. 기본값은 null
 
@@ -35,8 +36,10 @@ class Project : Serializable{
             projectData.description = jsonObject.getString("description")
             projectData.ongoingUsersCount = jsonObject.getInt("ongoing_users_count")
 
+            projectData.proofMethod = jsonObject.getString("proof_method")
+
 //            나의참가상태 : JSON에서 null로 담겨 있을수 있다 => null인지 확인하고 동작시켜야 안점함
-            if (jsonObject.isNull("my_last_status") ) {
+            if (!jsonObject.isNull("my_last_status") ) {
 
 //                null 이 아닐때만 파싱하자
 
@@ -45,7 +48,7 @@ class Project : Serializable{
 
 //            태그목록(JSONArray)을 파싱 => String만 추출해서 해쉬태그목록에 담아주자
 
-            val tagsArr = jsonObj.getJSONArray("tags")
+            val tagsArr = jsonObject.getJSONArray("tags")
 
 
             for (index in 0 until tagsArr.length()) {
