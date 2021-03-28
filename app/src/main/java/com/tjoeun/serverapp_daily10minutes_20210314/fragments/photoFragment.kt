@@ -25,6 +25,6 @@ class photoFragment : Fragment{
         super.onActivityCreated(savedInstanceState)
 
 //        보여줘야할 사진들을 => 포토뷰에 반영
-        Glide.
+        Glide.with()
     }
 }
