@@ -1,5 +1,6 @@
 package com.tjoeun.serverapp_daily10minutes_20210314
 
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.Color.CYAN
 import android.graphics.Color.parseColor
@@ -133,6 +134,13 @@ class ViewProjectDetailActivity : BaseActivity() {
 
                 })
 
+        }
+
+//
+        viewMemberBtn.setOnClickListener {
+
+            val myIntent = Intent(mContext, ViewMemberListActivity::class.java)
+            myIntent.putExtra()
         }
 
     }
