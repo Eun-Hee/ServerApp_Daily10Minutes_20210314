@@ -110,7 +110,7 @@ class SignUpActivity : BaseActivity() {
                         } else {
 
 //                            서버가 주는 message 스트링을 토스트로 출력
-                            val message = json.getInt("message")
+                            val message = json.getString("message")
 
                             Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show()
                         }
