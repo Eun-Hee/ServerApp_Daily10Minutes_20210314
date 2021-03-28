@@ -11,6 +11,8 @@ class Project : Serializable{
     var description = ""
     var ongoingUsersCount = 0
 
+    var myLastStatus : String? = null // null이 될 수도 있는 String. 기본값은 null
+
 //    기능 추가. JSONObject 하나를 적당히 넣으면 => 함수 내부에서 가공해서 => Project 로 내보내주는 기능
 //    어떤 프로젝트 객체가 실행하느냐는 의미가 없다. 기능만 잘 수행되면 됨.
 //    companion object 이용해서, Project 기능() 과 같이 코딩되도록 지원
@@ -26,6 +28,14 @@ class Project : Serializable{
             projectData.imageURL = jsonObject.getString("img_url")
             projectData.description = jsonObject.getString("description")
             projectData.ongoingUsersCount = jsonObject.getInt("ongoing_users_count")
+
+//            나의참가상태 : JSON에서 null로 담겨 있을수 있다 => null인지 확인하고 동작시켜야 안점함
+            if (jsonObject.isNull("my_last_status") ) {
+
+//                null 이 아닐때만 파싱하자
+
+                projectData.myLastStatus = jsonObject.getString("my_last_status")
+            }
 
 
 //            완성된 projectData가 결과로 나가도록

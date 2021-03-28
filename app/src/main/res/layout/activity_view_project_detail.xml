@@ -85,5 +85,13 @@
         android:layout_margin="10dp"
         android:text="참여 신청하기" />
 
+    <Button
+        android:id="@+id/giveUpBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="포기하기" />
+
+
 
 </LinearLayout>
