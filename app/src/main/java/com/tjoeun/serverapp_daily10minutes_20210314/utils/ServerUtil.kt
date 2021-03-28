@@ -344,7 +344,7 @@ class ServerUtil {
 
     val request = Request.Builder()
         .url(urlString)
-        .get()
+        .delete()
         .header("X-Http-Token", ContextUtil.getToken(context))
         .build()
 //            실제 호출 Client 변수
