@@ -28,10 +28,12 @@ class ProjectMemberAdapter(val mContext: Context,
 
         val memberdata = mList[position]
 
-        val memberProfileImg = row.findViewById<ImageView>(R.id.memberProfile)
-        val memberNameTxt = row.findViewById<TextView>(R.id.memberNickname)
+        val memberProfileImg = row.findViewById<ImageView>(R.id.memberProfileImg)
+        val memberNameTxt = row.findViewById<TextView>(R.id.memberNameTxt)
 
-        Glide.with(mContext).load((memberdata.profileImgUrls[0]).into(memberProfileImg))
+        Glide.with(mContext).load(memberData.profileImgUrls[0]).into(memberProfileImg)
+        memberNicknameTxt.text = memberData.nickName
+
 
         return row
 
