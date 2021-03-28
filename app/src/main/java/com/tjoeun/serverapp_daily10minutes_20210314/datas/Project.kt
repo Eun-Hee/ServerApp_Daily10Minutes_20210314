@@ -47,6 +47,7 @@ class Project : Serializable{
 
             val tagsArr = jsonObj.getJSONArray("tags")
 
+
             for (index in 0 until tagsArr.length()) {
                 val tagObj = tagsArr.getJSONObject(index)
 //                중괄호 { } 안에서 => title String만 꺼내서 태그목록으로 추가
