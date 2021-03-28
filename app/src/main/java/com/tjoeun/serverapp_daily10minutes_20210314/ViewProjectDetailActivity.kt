@@ -1,6 +1,5 @@
 package com.tjoeun.serverapp_daily10minutes_20210314
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -65,7 +64,7 @@ class ViewProjectDetailActivity : BaseActivity() {
 
 //                        UI상에서도 문구 반영
                         runOnUiThread {
-                            memberCountTxt.text = "${mProject.ongoingUsersCount}명"
+                            refreshUI()
 
                         }
                     } else {
@@ -88,10 +87,17 @@ class ViewProjectDetailActivity : BaseActivity() {
 //        들어오는 intent를 통해서 프로젝트 정보 저장.
         mProject = intent.getSerializableExtra("projectInfo") as Project
 
+        refreshUI()
+
+    }
+
+//   서버에서 받은 데이터 (mproject)를 기반으로 => UI 새로 반영 함수
+
+    fun refreshUI() {
+
 //        프로젝트 제목 / 이미지 표시.
         projectTitleTxt.text = mProject.title
         Glide.with(mContext).load(mProject.imageURL).into(projectImg)
-
 
 //        프로젝트 설명 문구 반영
         projectDescTxt.text = mProject.description
@@ -102,20 +108,21 @@ class ViewProjectDetailActivity : BaseActivity() {
 //        내가 이 프로젝트에 참여중인가?
 //        참가상태 == "ONGOING" 이면 참여중, 그 외 모든 경우 참여X
 
-        if (mProject.myLastStatus  == "ONGOING") {
+        if (mProject.myLastStatus == "ONGOING") {
 
 //            참여하기 버튼 숨김
 //            포기하기 버튼 보여주기
 
             applyBtn.visibility = View.GONE
             giveUpBtn.visibility = View.VISIBLE
-    }
-
-        else {
+        } else {
 
 //            참여하기 보여주고, 포기하기 숨겨주고
             applyBtn.visibility = View.VISIBLE
             giveUpBtn.visibility = View.GONE
         }
+    }
+
+
 
 }
