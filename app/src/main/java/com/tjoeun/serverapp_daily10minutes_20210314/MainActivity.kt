@@ -4,6 +4,7 @@ import android.app.AlertDialog
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import com.tjoeun.serverapp_daily10minutes_20210314.adapters.ProjectAdapter
 import com.tjoeun.serverapp_daily10minutes_20210314.datas.Project
 import com.tjoeun.serverapp_daily10minutes_20210314.utils.ContextUtil
@@ -23,7 +24,43 @@ class MainActivity : BaseActivity() {
         setContentView(R.layout.activity_main)
         setupEvents()
         setValues()
+
     }
+
+    override fun onResume() {
+        super.onResume()
+
+//        이 함수는 메인화면이 나타나려고 할때마다 계속 실행됨
+//        화면에 돌아올때마다, 새 알림이 있는지 서버에 자동으로 물어보게 하자.
+
+        askNewNotification()
+    }
+
+//    새 알림이 있는지 서버에 물어보는 함수
+    fun askNewNotification() {
+
+        ServerUtil.getRequestNotification(mContext, false, object : ServerUtil.JsonResponHandler{
+            override fun onResponse(json: JSONObject) {
+
+                val dataObj = json.getJSONObject("data")
+
+                val unreadNotiCount = dataObj.getInt("unread_noti_count")
+
+//                읽을 알림이 없다 : 빨간 동그라미 숨김
+//                읽을게 하나도 있다 : 빨간 동그라미 + 4 등의 숫자 겹침
+
+                if (unreadNotiCount == 0) {
+            }
+                else {
+
+                }
+
+        })
+
+
+
+
+}
 
     override fun setupEvents() {
 
@@ -75,6 +112,14 @@ class MainActivity : BaseActivity() {
     }
 
     override fun setValues() {
+
+//        첫 화면(메인화면)에서는 뒤로가기 버튼을 달지 않는다
+//        뒤로가기 버튼을 아예 숨겨두자(메인에서만)
+
+        backImg.visibility = View.GONE
+
+//        알림을 메인화면에서만 보여주자
+        notiImg.visibility = View.VISIBLE
 
         mAdapter = ProjectAdapter(mContext, R.layout.project_list_item, mProjectList)
 

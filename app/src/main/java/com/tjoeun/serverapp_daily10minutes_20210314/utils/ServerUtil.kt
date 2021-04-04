@@ -415,6 +415,7 @@ class ServerUtil {
 
         }
 
+//
         fun getRequestProjectMembers(context: Context, projectId: Int, handler: JsonResponHandler?) {
 
 //          GET - 주소 완성 양식 2가지 방법
@@ -459,7 +460,44 @@ class ServerUtil {
 
         }
 
+//        새 알림 있는지 확인하는 함수
 
+        fun getRequestNotification(context: Context, needNotiList : Boolean, handler: JsonResponHandler?) {
+
+            val urlBuilder = "${HOST_URL}/notification".toHttpUrlOrNull()!!.newBuilder()
+            urlBuilder.addEncodedQueryParameter("need_all_notis", needNotiList.toString())
+
+            val urlString = urlBuilder.build().toString()
+
+//            요청 정보 종합
+
+            val request = Request.Builder()
+                    .url(urlString)
+                    .get()
+                    .header("X-Http-Token", ContextUtil.getToken(context))
+                    .build()
+//            실제 호출 Client 변수
+
+            val  client = OkHttpClient()
+
+            client.newCall(request).enqueue(object :Callback{
+
+                override fun onFailure(call: Call, e: IOException) {
+
+                }
+
+                override fun onResponse(call: Call, response: Response) {
+
+                    val bodyString = response.body!!.string()
+                    val jsonObj = JSONObject(bodyString)
+                    Log.d("서버응답본문", jsonObj.toString())
+                    handler?.onResponse(jsonObj)
+                }
+
+            })
+
+
+        }
 
     }
 

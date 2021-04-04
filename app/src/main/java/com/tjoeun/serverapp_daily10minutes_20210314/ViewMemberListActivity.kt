@@ -20,8 +20,9 @@ class ViewMemberListActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_view_member_list)
-        setValues()
         setupEvents()
+        setValues()
+
     }
 
     override fun setupEvents() {
