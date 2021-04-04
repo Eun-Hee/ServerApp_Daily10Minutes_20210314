@@ -31,6 +31,16 @@ class ViewProofActivity : BaseActivity() {
                 override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
 
 //                    연 / 월 /일을 가지고 처리할 코드 작성
+
+//                    1. 확인할 인증날짜를 변경 (mProofDate 반영)
+
+                    mProofDate.set(year, month, dayOfMonth)
+
+//                    2. 텍스트뷰에 선택한 날짜 찍어주기
+
+                    val sdf = SimpleDateFormat("yyyy년 M월 d일")
+                    dateTxt.text = sdf.format(mProofDate.time)
+
                 }
 
             }
@@ -50,12 +60,12 @@ class ViewProofActivity : BaseActivity() {
 //        인증 확인 날짜에 현재 일자를 반영해보자
 
 //        Calender변수의 get 기능 활용 예시
-//        dateTxt.text = "${mProofDate.get(Calendar.YEAR)}-${mProofDate.get(Calendar.MONTH)}-${mProofDate.get(Calendar.DATE)}"
+//        dateTxt.text = "${mProofDate.get(Calendar.YEAR)}-${mProofDate.get(Calendar.MONTH)}-${mProofDate.get(Calendar.DAY_OF_MONTH)}"
 
 //        SimpleDateFormat 클래스 활용 예시
 
 //        가공해줄 양식 지정
-        val sdf = SimpleDateFormat("yyyy-MM-dd")
+        val sdf = SimpleDateFormat("yyyy년 MM월 dd일")
 
         dateTxt.text = sdf.format(mProofDate.time)
 
