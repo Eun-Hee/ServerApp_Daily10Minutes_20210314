@@ -19,6 +19,12 @@ class Proof {
             proof.id = JsonObj.getInt("id")
             proof.content = JsonObj.getString("content")
 
+//           게시글의 작성자?
+//           User 형태 => 적당한 JSON을 넣으면 => User로 바꿔주는 기능
+//           만들어둔걸 활용하자.
+
+//           user 정보를 갖고있는 JSON 추출
+            proof.writer = User.getUserDataFromJson(userobj)
 
 
             return proof
