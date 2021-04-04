@@ -2,6 +2,7 @@ package com.tjoeun.serverapp_daily10minutes_20210314
 
 import android.os.Bundle
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
@@ -15,11 +16,13 @@ abstract class BaseActivity : AppCompatActivity() {
 
     lateinit var backImg : ImageView
     lateinit var notiImg : ImageView
+    lateinit var  notiCountTxt : TextView
 
     val mContext = this
 
     abstract fun setupEvents()
     abstract fun setValues()
+
 
 //    이 클래스에서 onCreat의 내용을 수정(오버라이딩)하면
 //    자녀들이 가진 (모든 화면에서 가진) super.onCreat 에서 동작됨
@@ -79,8 +82,10 @@ abstract class BaseActivity : AppCompatActivity() {
         notiImg = defaultActionBar.customView.findViewById(R.id.notiImg)
 
         notiImg.setOnClickListener {
-            Toast.makeText(mContext, "ddd", Toast.LENGTH_SHORT).show()
+            Toast.makeText(mContext, "알림을 보러 가야합니다.", Toast.LENGTH_SHORT).show()
         }
+
+        notiCountTxt = defaultActionBar.customView.
 
 
     }
