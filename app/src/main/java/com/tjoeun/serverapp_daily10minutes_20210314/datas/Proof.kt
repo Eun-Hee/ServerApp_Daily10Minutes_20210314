@@ -24,7 +24,7 @@ class Proof {
 //           만들어둔걸 활용하자.
 
 //           user 정보를 갖고있는 JSON 추출
-            proof.writer = User.getUserDataFromJson(userobj)
+            proof.writer = User.getUserDataFromJson(Userobj)
 
 
             return proof
