@@ -3,6 +3,7 @@ package com.tjoeun.serverapp_daily10minutes_20210314
 import android.app.DatePickerDialog
 import android.os.Bundle
 import android.widget.DatePicker
+import com.tjoeun.serverapp_daily10minutes_20210314.adapters.ProofAdapter
 import com.tjoeun.serverapp_daily10minutes_20210314.datas.Project
 import com.tjoeun.serverapp_daily10minutes_20210314.datas.Proof
 import com.tjoeun.serverapp_daily10minutes_20210314.utils.ServerUtil
@@ -80,26 +81,34 @@ class ViewProofActivity : BaseActivity() {
 
         val serverFormat = SimpleDateFormat("yyyy-MM-dd")
 
-        ServerUtil.getRequestProjectProofByDate(mContext, mProject.id, serverFormat.format(mProofDate.time), object : ServerUtil.JsonResponHandler{
-            override fun onResponse(json: JSONObject) {
+        ServerUtil.getRequestProjectProofByDate(
+            mContext,
+            mProject.id,
+            serverFormat.format(mProofDate.time),
+            object : ServerUtil.JsonResponHandler {
+                override fun onResponse(json: JSONObject) {
 
 //                서버가 내려주는 인증글 목록을 담아주자
 
-                val dataObj = json.getJSONObject("data")
-                val projectObj = dataObj.getJSONObject("project")
+                    val dataObj = json.getJSONObject("data")
+                    val projectObj = dataObj.getJSONObject("project")
 
-                val proofsArr = projectObj.getJSONObject("proofs")
+                    val proofsArr = projectObj.getJSONObject("proofs")
 
-                for (i in 0 until proofsArr.length()) {
-                    val proofObj = proofsArr.getJSONObject(i)
+                    for (i in 0 until proofsArr.length()) {
+                        val proofObj = proofsArr.getJSONObject(i)
 
-                    val proofData = Proof.getProofFromJson(projectObj)
+                        val proofData = Proof.getProofFromJson(projectObj)
 
-                    mProofList.add(proofData)
+                        mProofList.add(proofData)
+                    }
+
+                    runOnUiThread {
+                        mProofAdapter.notifyDataSetChanged()
+                    }
                 }
-            }
 
-        } )
+            })
 
 
     }
@@ -122,6 +131,10 @@ class ViewProofActivity : BaseActivity() {
         val sdf = SimpleDateFormat("yyyy년 MM월 dd일")
 
         dateTxt.text = sdf.format(mProofDate.time)
+
+//        리스트뷰 / 어댑터 연결
+        mProofAdapter = ProofAdapter(mContext, R.layout.proof_list_item, mProofList)
+        proofListView
 
 
     }

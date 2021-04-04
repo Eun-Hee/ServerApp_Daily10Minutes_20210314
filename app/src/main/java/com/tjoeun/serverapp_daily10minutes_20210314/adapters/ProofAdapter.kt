@@ -30,6 +30,15 @@ class ProofAdapter(val mContext: Context,
 
         val row = tempRow!!
 
+        val data = mList[position]
+
+        val writerProfileImg = row.findViewById<ImageView>(R.id.writerProfileImg)
+        val writerNicknameTxt = row.findViewById<TextView>(R.id.writerNicknameTxt)
+        val contextTxt  = row.findViewById<TextView>(R.id.context)
+        val writerProfileImg = row.findViewById<ImageView>(R.id.writerProfileImg)
+        val writerProfileImg = row.findViewById<ImageView>(R.id.writerProfileImg)
+        val writerProfileImg = row.findViewById<ImageView>(R.id.writerProfileImg)
+
         }
 
 
