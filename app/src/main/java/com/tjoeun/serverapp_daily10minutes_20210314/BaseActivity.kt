@@ -85,7 +85,7 @@ abstract class BaseActivity : AppCompatActivity() {
             Toast.makeText(mContext, "알림을 보러 가야합니다.", Toast.LENGTH_SHORT).show()
         }
 
-        notiCountTxt = defaultActionBar.customView.
+        notiCountTxt = defaultActionBar.customView.findViewById(R.id.notiCountTxt)
 
 
     }

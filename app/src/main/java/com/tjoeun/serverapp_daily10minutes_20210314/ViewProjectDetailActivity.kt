@@ -35,6 +35,16 @@ class ViewProjectDetailActivity : BaseActivity() {
 
     override fun setupEvents() {
 
+//        인증글 보러가기 눌리면 => 화면인동
+
+        viewProofBtn.setOnClickListener {
+
+            val myIntent = Intent(mContext, ViewProofActivity::class.java)
+            myIntent.putExtra("project", mProject)
+            startActivity(myIntent)
+
+        }
+
 //        참가신청 버튼이 눌리면 => 신청 API 호출
 
         applyBtn.setOnClickListener {

@@ -124,14 +124,20 @@
         android:layout_margin="10dp"
         android:text="참여 신청하기" />
 
-
-
     <Button
         android:id="@+id/giveUpBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:text="중도 포기하기" />
+
+    <Button
+        android:id="@+id/viewProofBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="인증 게시글 보러가기"
+        />
 
     <Button
         android:id="@+id/viewMemberBtn"
