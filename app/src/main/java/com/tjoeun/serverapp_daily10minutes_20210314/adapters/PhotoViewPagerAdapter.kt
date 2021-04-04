@@ -22,7 +22,7 @@ class PhotoViewPagerAdapter(fm : FragmentManager,
         val pf = photoFragment()
         pf.photoUrl = mPhotoUrlList[position]
 
-        return
+        return pf
 
     }
 }

@@ -1,6 +1,5 @@
 package com.tjoeun.serverapp_daily10minutes_20210314.datas
 
-import android.service.autofill.UserData
 import org.json.JSONObject
 import java.io.Serializable
 
